@@ -13,7 +13,6 @@ def main():
     
     print(abs(diag1-diag2))
     
-    
 main()
         
         
