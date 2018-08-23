@@ -3,3 +3,4 @@ def main()
 	num2 = int(input())
 	res = a+b
 	print(res)
+main()
