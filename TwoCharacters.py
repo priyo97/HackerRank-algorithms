@@ -6,42 +6,26 @@ def main():
     d = list(set(string))
     l = len(d)
     
-    chosen = set()
-    
-    permutation(d,l,chosen,2,string,n)
-    
+    m = 0
+    for i in range(l):
+        for j in range(i+1,l):
+            
+            s = n
+            t = []
+            for k in string:
+                if k == d[i] or k == d[j]:
+                    t.append(k)
+                    continue
+                s -= 1
+                
+            for k in range(1,s):
+                if t[k] == t[k-1]:
+                    break
+            else:
+                if s > m:
+                    m = s
+            
     print(m)
 
-m = 0
-
-def permutation(d,a,chosen,n,s,l):
-    global m
-    
-    if n == 0:       
-        t = []
-        for i in s:
-            if i in chosen:
-                t.append(i)
-                continue
-            l -= 1
-        
-        for i in range(1,l):
-            if t[i] == t[i-1]:
-                return
-        else:
-            if l > m:
-                m = l
-       
-    else:
-        for i in range(a):
-            c = d[i]
-            d.remove(c)
-            chosen.add(c)
-            permutation(d,a-1,chosen,n-1,s,l)
-            chosen.remove(c)
-            d.insert(i,c)
-            
 main()
-            
-            
             
