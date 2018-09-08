@@ -1,46 +1,34 @@
 def main():
     
     s = input()
-    
-    n = len(s)
 
-    d = {}
+    d = set()
     
-    i = 0
+    c = -1
     
-    while i < n:
+    m = ord("a")
+    
+    for i in s:
         
-        c = s[i]
-        
-        m = ord("a")
-        
-        p = ord(c) - m + 1
-        
-        d[p] = True
-        
-        count = 1
-        
-        j = i + 1
-        
-        while j < n:
+        if i == c:
+            count += 1
+            d.add(count * p)
+        else:
+            c = i
             
-            if s[j] == c:
-                count += 1
-                d[count * p] = True
-            else:
-                break
-            
-            j += 1
-        
-        i = j
-        
+            p = ord(c) - m + 1
+
+            d.add(p)
+
+            count = 1
+                
     n = int(input())
     
     while n:
         
         q = int(input())
         
-        if d.get(q,False):
+        if q in d:
             print("Yes")
         else:
             print("No")
