@@ -7,19 +7,16 @@ def main():
         n,k = [int(x) for x in input().split()]
         a = [int(x) for x in input().split()]
         b = [int(x) for x in input().split()]
-        
-        a.sort()
-        b.sort()
-        
         flag = [0]*n
         
         for i in range(n):
+            c = 9999999999
             idx = -1
             for j in range(n):
                 
-                if a[i]+ b[j] >= k and not flag[j]:
+                if a[i]+ b[j] >= k and b[j] < c and not flag[j]:
+                    c = b[j]
                     idx = j
-                    break
             
             if idx == -1:
                 print("NO")
@@ -34,6 +31,3 @@ def main():
         t -= 1
         
 main()
-
-
-
