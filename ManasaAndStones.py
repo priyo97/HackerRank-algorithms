@@ -14,10 +14,13 @@ def main():
             
             if a > b:
                 a,b = b,a
-                
-            for i in range(n):
+            
+            min = a*(n-1)
+            max = b*(n-1)
+            
+            for i in range(min,max+1,b-a):
 
-                 print( a*(n-1-i) + b*i ,end=" ")
+                 print(i,end=" ")
 
             print()
             
